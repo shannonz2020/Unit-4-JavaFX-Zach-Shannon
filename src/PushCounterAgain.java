@@ -22,7 +22,10 @@ public class PushCounterAgain extends Application {
         Button down = new Button("Decrease!");
         down.setOnAction(this::processButtonPressDec);
 
-        FlowPane pane = new FlowPane(up, countText, down);
+        Button other = new Button("Press this!");
+        other.setOnAction(this::processButtonPressOther);
+
+        FlowPane pane = new FlowPane(up, countText, down, other);
         pane.setAlignment(Pos.CENTER);
         pane.setHgap(20);
         pane.setStyle("-fx-background-color: cyan");
@@ -47,5 +50,10 @@ public class PushCounterAgain extends Application {
         countText.setText("Pushes: " + count);
 
     }
+    private void processButtonPressOther(ActionEvent event) {
+        // Counts number of button clicks and shows the result on a label
+        count*=3;
+        countText.setText("Pushes: " + count);
 
+    }
 }
